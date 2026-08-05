@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Environment Variables
+.env
+
+# Flask
+instance/
+
+# Logs
+*.log
