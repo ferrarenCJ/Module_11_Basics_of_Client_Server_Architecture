@@ -1,26 +1,42 @@
-# Module 11 Introduction and Information
+# Video 11.1: Introduction
 
-## Learning Objectives
+## Summary
 
-- Understand Client-Server Architecture
-- Learn how web applications function
-- Explore APIs and security concepts
-- Build web applications using Flask
+Client-server architecture separates responsibilities between
+clients and servers. Clients request information or services,
+while servers process requests and return responses. This model
+forms the foundation of modern web applications and distributed
+computing.
 
 ## Key Concepts
 
 ### Client
+- Requests information or services
+- Examples include web browsers and mobile applications
 
 ### Server
+- Processes requests from clients
+- Hosts applications and stores data
 
-### Request-Response Model
+### HTTP
+- Hypertext Transfer Protocol
+- Standard communication protocol used between clients and servers
 
-### Web Applications
+## Topics Introduced
 
-## Data Engineering Connections
+- Flask
+- Jinja Templates
+- Cookies
+- Session Cookies
+- Bootstrap
+- REST APIs
+- Swagger
+- Kerberos
+- OpenSSL
+- OAuth2
+- Okta
 
-## Questions
+## Key Takeaway
 
-## Key Takeaways
-
-## Summary
+Understanding client-server architecture is essential for
+developing scalable and secure web applications.
