@@ -1,25 +1,38 @@
-# Module Administration
+# Module 11: Basics of Client-Server Architecture
 
-This directory contains project management and administrative information for Module 11.
+## Overview
 
-## Contents
+This module introduces the foundations of client-server computing and web application development.
 
-- Module schedule
-- Progress tracking
-- Assignment tracking
-- Submission history
-- Important dates
+Students will learn how to:
 
-## Module Information
+- Build websites using Flask
+- Understand HTTP communications
+- Work with cookies and session cookies
+- Enhance websites using Bootstrap
+- Create and document APIs using Swagger
+- Understand security, encryption, and authentication
+- Explore OAuth2 and Okta
 
-Module: Basics of Client-Server Architecture
+## Module Learning Outcomes
 
-Estimated Duration:
-15.5 Hours
+- Use Flask to create a website
+- Identify key client-server architecture components
+- Create and retrieve cookies from a website
+- Modify Bootstrap code to enhance a website
+- Use Swagger to expose an API
+- Identify key concepts of security, encryption, and authentication
 
-Activities:
-- 12 Videos
-- 4 Knowledge Checks
-- 2 Discussions
-- 4 Coding Activities
-- 1 Final Assignment
+## Major Deliverables
+
+### Discussions
+- Discussion 11.1: The Role of Flask in Client-Server Architecture
+
+### Coding Activities
+- Activity 11.1: Creating a Website Using Flask
+- Activity 11.2: Adding a Cookie to a Website
+- Activity 11.3: Customizing Bootstrap Code
+- Activity 11.4: Using Swagger to Expose an API
+
+### Final Assignment
+- Assignment 11.1: Basics of Client-Server Architecture
