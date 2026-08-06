@@ -3,6 +3,8 @@ from flask import Flask, request, render_template, session
 from flask import redirect
 from functools import wraps
 import os
+
+
 app = Flask(__name__)
 app.secret_key = "secretkey"
 app.config["UPLOADED_PHOTOS_DEST"] = "static"
@@ -72,7 +74,7 @@ def logout():
     return "Logged Out of Books"
 
 
-@app.route("/", methods=["GET"])
+@app.route("/books", methods=["GET"])
 def getBooks():
         return render_template('books.html', books=books,  username=session["username"])
 #add decorator for books
