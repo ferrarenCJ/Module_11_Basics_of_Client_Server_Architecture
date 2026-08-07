@@ -1,29 +1,7 @@
-# Session Cookies (Videos 11.6-11.7)
+# Session Cookies (Videos 11.6 and 11.7)
 
-## Sessions Overview
+## Learning Objectives
 
-## Session Cookies
-
-## How Sessions Work
-
-## Session Storage
-
-## Session Management
-
-## Cookies vs Sessions
-
-| Feature | Cookies | Sessions |
-|----------|----------|----------|
-| Storage Location | | |
-| Security | | |
-| Persistence | | |
-
-## Examples
-
-## Data Engineering Connections
-
-## Questions
-
-## Key Takeaways
-
-## Summary
+- Understand how session cookies work
+- Learn how browsers store and manage cookies
+- Explore how session
