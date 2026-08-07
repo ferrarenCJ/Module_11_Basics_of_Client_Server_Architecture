@@ -8,28 +8,50 @@ Use Swagger to expose an API.
 
 # Objective
 
-In this activity you will:
+In this activity, you will:
 
-1. Install Swagger UI support for Flask.
+1. Install Swagger support for Flask.
 2. Run the My Books Site application.
-3. Access the Swagger interface.
-4. Test a GET API endpoint.
-5. Test a POST API endpoint.
-6. Observe API requests and responses.
+3. Open the Swagger interface.
+4. Use Swagger to execute a GET request.
+5. Use Swagger to execute a POST request.
+6. Observe how APIs can be tested through Swagger.
 
 ---
 
-# Background
+# Understanding the Application
 
-Swagger provides an interactive interface that allows developers to:
+The provided application already contains:
 
-- Document APIs
-- Test APIs
-- View HTTP requests
-- View HTTP responses
-- Debug API functionality
+## Flask Application
 
-Swagger acts as a browser-based API testing tool.
+```python
+app = Flask(__name__)
+```
+
+## Swagger Configuration
+
+```python
+SWAGGER_URL = "/swagger"
+API_URL = "/static/swagger.json"
+```
+
+This configuration tells Flask:
+
+```text
+Swagger UI
+        |
+        v
+/static/swagger.json
+```
+
+The Swagger interface reads the API definitions from:
+
+```text
+static/swagger.json
+```
+
+and automatically generates documentation and testing screens.
 
 ---
 
@@ -37,7 +59,7 @@ Swagger acts as a browser-based API testing tool.
 
 Open VS Code.
 
-Open a terminal.
+Open Terminal.
 
 Run:
 
@@ -45,13 +67,29 @@ Run:
 pip install flask-swagger-ui
 ```
 
-If that fails:
+If pip fails:
 
 ```bash
 pip3 install flask-swagger-ui
 ```
 
-Wait until installation completes successfully.
+Wait until installation completes.
+
+---
+
+## Verify Installation
+
+Run:
+
+```bash
+pip show flask-swagger-ui
+```
+
+Expected:
+
+```text
+Name: flask-swagger-ui
+```
 
 ---
 
@@ -63,38 +101,51 @@ Download:
 Activity 11.4.zip
 ```
 
-Extract the ZIP file.
+Extract the files.
 
-Open the extracted folder in VS Code.
+Open the folder in VS Code.
 
-You should see:
+You should see files similar to:
 
 ```text
 app.py
+static/
 templates/
 swagger.json
 ```
-
-(or similar supporting files)
 
 ---
 
 # Step 3: Open app.py
 
-Locate:
+Open:
 
 ```text
 app.py
 ```
 
-Open the file.
+Review the important sections.
 
-Review:
+### Swagger Setup
 
-- Flask Application
-- API Routes
-- Swagger Configuration
-- Books Endpoints
+```python
+SWAGGER_URL = "/swagger"
+API_URL = "/static/swagger.json"
+```
+
+### Books API
+
+```python
+@app.route("/books")
+def getBooks():
+```
+
+### Add Book API
+
+```python
+@app.route("/addbook")
+def addBook():
+```
 
 ---
 
@@ -105,9 +156,9 @@ Capture:
 - VS Code
 - app.py open
 
-Purpose:
+This satisfies:
 
-Demonstrates that the project was opened correctly.
+> Screenshot of Visual Studio Code showing app.py from the Activity 11.4 zip file.
 
 ---
 
@@ -121,19 +172,15 @@ Run:
 python app.py
 ```
 
-Wait for Flask to start.
-
-You should see:
+Expected:
 
 ```text
-Running on http://localhost:5000
+Running on http://127.0.0.1:5000
 ```
 
 ---
 
-# Step 5: View the Application
-
-Open your browser.
+# Step 5: Open My Books Site
 
 Navigate to:
 
@@ -144,10 +191,18 @@ http://localhost:5000
 Expected:
 
 ```text
+Register Page
+```
+
+or
+
+```text
 My Books Site
 ```
 
-The website should be displayed.
+depending on the provided files.
+
+The site should load successfully.
 
 ---
 
@@ -155,18 +210,15 @@ The website should be displayed.
 
 Capture:
 
-- Browser
-- URL:
-
 ```text
 http://localhost:5000
 ```
 
-- My Books Site visible
+with the application running.
 
-Purpose:
+This satisfies:
 
-Demonstrates that the application is running successfully.
+> Screenshot of the web browser pointing to localhost:5000 and showing the application running.
 
 ---
 
@@ -189,27 +241,40 @@ GET /books
 POST /books
 ```
 
+If Swagger loads, the Swagger configuration is working correctly.
+
 ---
 
 ## Screenshot #3
 
 Capture:
 
-- Browser
-- Swagger UI opened
+```text
+http://localhost:5000/swagger
+```
 
-Purpose:
+showing Swagger UI.
 
-Demonstrates that Swagger is successfully connected to the API.
+This satisfies:
+
+> Screenshot of the browser pointing to localhost:5000/swagger
 
 ---
 
-# Step 7: Test GET /books
+# Step 7: Test GET Books API
 
 Locate:
 
 ```text
 GET /books
+```
+
+inside Swagger.
+
+Select:
+
+```text
+GET
 ```
 
 Expand the endpoint.
@@ -220,23 +285,42 @@ Select:
 Try it out
 ```
 
-Then select:
+Swagger will enable the Execute button.
+
+Select:
 
 ```text
 Execute
 ```
 
-Swagger will send a GET request.
+---
 
-You should see:
+# What Swagger Does
 
-### cURL Request
+Swagger generates:
 
 ```bash
 curl -X GET ...
 ```
 
-### Response
+and sends the request to Flask.
+
+Flask executes:
+
+```python
+@app.route("/books")
+def getBooks():
+```
+
+and returns:
+
+```python
+books
+```
+
+---
+
+# Expected Response
 
 Example:
 
@@ -245,6 +329,10 @@ Example:
   {
     "author": "Hernando de Soto",
     "title": "The Mystery of Capital"
+  },
+  {
+    "author": "Hans Christian Andersen",
+    "title": "Fairy Tales"
   }
 ]
 ```
@@ -253,25 +341,29 @@ Example:
 
 ## Screenshot #4
 
-Capture:
+Capture all of:
 
-- GET /books endpoint
+- GET endpoint
+- Try it out
+- Execute
 - cURL request
-- Response body
+- Response section
 
-Purpose:
+This satisfies:
 
-Demonstrates that the API successfully returned data.
+> Screenshot of the call to GET method to get books, including output.
 
 ---
 
-# Step 8: Test POST /books
+# Step 8: Test POST Books API
 
 Locate:
 
 ```text
 POST /books
 ```
+
+inside Swagger.
 
 Expand the endpoint.
 
@@ -281,18 +373,22 @@ Select:
 Try it out
 ```
 
-Swagger will display a JSON request body.
+Swagger displays a request body.
 
-Example:
+---
+
+# Add a New Book
+
+Enter:
 
 ```json
 {
   "author": "Clifford Ferraren",
-  "title": "Module 11 API Testing"
+  "title": "Module 11 Swagger Testing"
 }
 ```
 
-Replace values if desired.
+or any author/title of your choice.
 
 Select:
 
@@ -300,26 +396,43 @@ Select:
 Execute
 ```
 
-Swagger sends the POST request.
+---
+
+# What Happens Internally
+
+Swagger sends:
+
+```http
+POST /books
+```
+
+Flask executes:
+
+```python
+@app.route("/addbook")
+def addBook():
+```
+
+A new book is added to:
+
+```python
+books.append(newbook)
+```
 
 ---
 
-# Expected Result
-
-The API should:
-
-1. Receive the request.
-2. Create a new book entry.
-3. Return a successful response.
+# Expected Response
 
 Example:
 
 ```json
 {
   "author": "Clifford Ferraren",
-  "title": "Module 11 API Testing"
+  "title": "Module 11 Swagger Testing"
 }
 ```
+
+or a success response showing the updated books list.
 
 ---
 
@@ -327,61 +440,61 @@ Example:
 
 Capture:
 
-- POST /books endpoint
+- POST endpoint
 - Request body
-- Response body
+- Execute button
+- Response section
 
-Purpose:
+This satisfies:
 
-Demonstrates that a new book was successfully created through the API.
+> Screenshot of the call to POST method to create a book, including output.
 
 ---
 
-# What Swagger Shows
+# Optional Verification
 
-Swagger displays:
-
-## Endpoint
-
-Example:
+Execute:
 
 ```text
 GET /books
 ```
 
----
+again.
 
-## Request
-
-Example:
-
-```http
-GET /books HTTP/1.1
-```
-
----
-
-## cURL Command
-
-Example:
-
-```bash
-curl -X GET
-```
-
----
-
-## Response
+Verify your newly added book appears.
 
 Example:
 
 ```json
-[
-  {
-    "title": "Book Title"
-  }
-]
+{
+  "author": "Clifford Ferraren",
+  "title": "Module 11 Swagger Testing"
+}
 ```
+
+This confirms the POST request succeeded.
+
+---
+
+# Understanding the Swagger Architecture
+
+```text
+Browser
+    |
+    v
+Swagger UI
+    |
+    v
+REST API
+    |
+    v
+Flask Route
+    |
+    v
+Books Data
+```
+
+Swagger acts as a testing interface between the browser and API.
 
 ---
 
@@ -389,15 +502,11 @@ Example:
 
 ## GET
 
-Used to:
-
-```text
-Read data
-```
+Retrieve data.
 
 Example:
 
-```text
+```http
 GET /books
 ```
 
@@ -405,29 +514,37 @@ GET /books
 
 ## POST
 
-Used to:
-
-```text
-Create data
-```
+Create data.
 
 Example:
 
-```text
+```http
 POST /books
 ```
 
 ---
 
+## REST API
+
+Uses:
+
+- URL
+- HTTP Method
+- JSON Data
+
+to communicate.
+
+---
+
 ## Swagger
 
-Used to:
+Provides:
 
-- Document APIs
-- Test APIs
-- View requests
-- View responses
-- Debug APIs
+- API documentation
+- Testing interface
+- Debugging support
+
+without writing client code.
 
 ---
 
@@ -435,29 +552,19 @@ Used to:
 
 ## Screenshot 1
 
-✅ app.py in VS Code
+✅ app.py open in VS Code
 
 ---
 
 ## Screenshot 2
 
-✅ Browser showing:
-
-```text
-http://localhost:5000
-```
-
-My Books Site running
+✅ Application running at localhost:5000
 
 ---
 
 ## Screenshot 3
 
-✅ Swagger UI
-
-```text
-http://localhost:5000/swagger
-```
+✅ Swagger UI at localhost:5000/swagger
 
 ---
 
@@ -467,8 +574,8 @@ http://localhost:5000/swagger
 
 Include:
 
-- cURL
-- Response
+- cURL request
+- JSON response
 
 ---
 
@@ -479,7 +586,7 @@ Include:
 Include:
 
 - Request body
-- Response body
+- JSON response
 
 ---
 
@@ -491,11 +598,7 @@ Create:
 Activity11_4_Clifford_J_Ferraren.docx
 ```
 
-Insert all required screenshots.
-
-Label each screenshot.
-
-Example:
+Include:
 
 1. Opened app.py
 2. My Books Site running
@@ -503,13 +606,15 @@ Example:
 4. GET Books Request
 5. POST Create Book Request
 
+Label each screenshot clearly.
+
 ---
 
 # Key Takeaways
 
-- Swagger provides interactive API documentation.
-- Swagger can execute API requests directly from a browser.
-- GET requests retrieve data.
-- POST requests create data.
-- Swagger simplifies API verification and debugging.
-- Flask and Swagger work together to expose and test REST APIs.
+- Swagger automatically documents APIs.
+- Swagger can execute API calls directly from a browser.
+- GET requests retrieve information.
+- POST requests create information.
+- Flask routes become API endpoints.
+- Swagger simplifies API development, testing, and debugging.
