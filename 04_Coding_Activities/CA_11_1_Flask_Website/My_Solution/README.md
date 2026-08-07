@@ -197,17 +197,27 @@ CA_11_1_Flask_Website
 
 ### Required Files
 
-- [ ] app.py
-- [ ] templates/index.html
-- [ ] Word document with screenshots
+- [xapp.py
+- [x] [templates/index.html[x] [Activity11_1_Clifford_J_Ferraren.zip](./Activity11_1_Clifford_J_Ferraren.zip
 
-### Final Submission
+## Final Submission
+
+### Submission Package
+
+📦 **Download ZIP**
+
+./Activity11_1_Clifford_J_Ferraren.zip
+
+### Location
 
 ```text
-Activity11_1_Clifford_J_Ferraren.zip
+My_Solution/
+└── Activity11_1_Clifford_J_Ferraren.zip
 ```
 
 Contents:
 
 - Modified Flask project
-- Word document with screenshots
+- app.py
+- templates/index.html
+- Word document containing required screenshots
