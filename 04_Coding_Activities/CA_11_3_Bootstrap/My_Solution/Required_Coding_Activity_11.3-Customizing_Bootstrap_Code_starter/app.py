@@ -6,20 +6,24 @@ A example for creating a Table that is sortable by its header
 """
 
 app = Flask(__name__)
+
 data = [{
-  "name": "bootstrap-table",
-  "commits": "10",
-  "uneven": "An extended Bootstrap table"
+  "name": "Flask",
+  "commits": "Web Framework",
+  "uneven": "Creates web applications"
 },
- {
-  "name": "multiple-select",
-  "commits": "288",
-  "uneven": "A jQuery plugin"
-}, {
-  "name": "Testing",
-  "commits": "340",
-  "uneven": "For test"
+{
+  "name": "Cookies",
+  "commits": "Session Management",
+  "uneven": "Maintains user state"
+},
+{
+  "name": "Bootstrap",
+  "commits": "UI Framework",
+  "uneven": "Enhances website appearance"
 }]
+
+
 # other column settings -> http://bootstrap-table.wenzhixin.net.cn/documentation/#column-options
 columns = [
   {
